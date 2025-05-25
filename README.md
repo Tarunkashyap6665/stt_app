@@ -105,7 +105,7 @@ First, build the Docker image from the project directory:
 docker image build -t speech-to-text-app .
 ```
 
-📹 Watch the build process: [resources/docker-build-demo.gif](resources/docker-build-demo.gif)
+📹 Watch the build process: ![resources/docker-build-demo.gif](resources/docker-build-demo.gif)
 
 ### 2. Running the Web UI Container
 
@@ -115,7 +115,7 @@ To run the web interface version of the application, bind the host port 3000 to 
 docker container run -p 3000:7860 speech-to-text-app
 ```
 
-📹 Watch the web UI demo: [resources/webui-container-demo.gif](resources/webui-container-demo.gif)
+📹 Watch the web UI demo: ![resources/webui-container-demo.gif](resources/webui-container-demo.gif)
 
 ### 3. Running the FastAPI Container
 
@@ -125,7 +125,7 @@ To run the FastAPI server version of the application, bind the host port 8000 to
 docker container run -p 8000:8000 speech-to-text-app
 ```
 
-📹 Watch the FastAPI demo: [resources/fastapi-container-demo.gif](resources/fastapi-container-demo.gif)
+📹 Watch the FastAPI demo: ![resources/fastapi-container-demo.gif](resources/fastapi-container-demo.gif)
 
 ### 4. Running Both Web UI and FastAPI Server
 
