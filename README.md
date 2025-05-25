@@ -1,6 +1,7 @@
 # Speech-to-Text Model Deployment
 
 This project demonstrates the deployment of a Hindi Speech-to-Text model using NVIDIA NeMo and ONNX Runtime. The model is converted from NVIDIA NeMo format to ONNX format for efficient inference and deployed using both FastAPI and a web interface. The application provides two ways to interact with the model:
+
 1. A user-friendly web interface for easy testing and demonstration
 2. A FastAPI server for production deployment and API integration
 
@@ -44,6 +45,7 @@ The project includes Docker support for easy deployment and can run both service
    ```
 
    This script:
+
    - Loads the pre-trained Hindi Conformer CTC model
    - Converts it to ONNX format
    - Saves the converted model in the `models/` directory
@@ -55,6 +57,7 @@ The project includes Docker support for easy deployment and can run both service
    ```bash
    python serve.py
    ```
+
    The FastAPI server will be accessible at http://localhost:8000.
 
 2. **Access the Web Interface**
@@ -62,6 +65,7 @@ The project includes Docker support for easy deployment and can run both service
    ```bash
    python web-ui.py
    ```
+
    This will launch the Gradio web interface accessible at http://localhost:7860 for easy interaction with the model.
 
 ## API Usage
@@ -69,6 +73,7 @@ The project includes Docker support for easy deployment and can run both service
 The server exposes a `/transcribe` endpoint that accepts WAV audio files for Hindi speech transcription.
 
 ### Request
+
 ```bash
 curl -X POST "http://localhost:8000/transcribe" \
      -H "Content-Type: multipart/form-data" \
@@ -76,13 +81,15 @@ curl -X POST "http://localhost:8000/transcribe" \
 ```
 
 ### Response
+
 ```json
 {
-    "transcription": "आर्टिफिशियल इंटेलिजेंस इस ट्रांसफॉर्मिंग द वे इंटरेक्ट विद टेक्नॉलॉजी फ्रॉम वर्चुअल असिस्टेंट टू सेल्फ ड्राइविंग काड"
+  "transcription": "आर्टिफिशियल इंटेलिजेंस इस ट्रांसफॉर्मिंग द वे इंटरेक्ट विद टेक्नॉलॉजी फ्रॉम वर्चुअल असिस्टेंट टू सेल्फ ड्राइविंग काड"
 }
 ```
 
 **Note**: The audio file must be:
+
 - In WAV format
 - Maximum duration of 10 seconds
 
@@ -99,6 +106,9 @@ docker image build -t speech-to-text-app .
 ```
 
 📹 Watch the build process: [resources/docker-build-demo.mp4](resources/docker-build-demo.mp4)
+<video src="resources/docker-build-demo.mp4" controls width="600">
+Your browser does not support the video tag.
+</video>
 
 ### 2. Running the Web UI Container
 
@@ -129,10 +139,12 @@ docker container run -d -p 8000:8000 -p 3000:7860 speech-to-text-app
 ```
 
 Now you can access:
+
 - Web UI at: http://localhost:3000
 - FastAPI server at: http://localhost:8000
 
-**Note**: 
+**Note**:
+
 - The web UI and FastAPI server cannot run simultaneously on the same port
 - Choose one deployment method based on your needs
 - The web UI provides a user-friendly interface for testing
@@ -177,6 +189,7 @@ Set up the following secrets in your GitHub repository:
 #### Setting up DigitalOcean Credentials
 
 1. **Create a DigitalOcean Droplet**:
+
    - Log in to DigitalOcean
    - Click "Create" → "Droplets"
    - Choose Ubuntu 22.04
@@ -187,14 +200,17 @@ Set up the following secrets in your GitHub repository:
    - Click "Create Droplet"
 
 2. **Get DIGITALOCEAN_HOST**:
+
    - After droplet creation, copy the IP address
    - This is your `DIGITALOCEAN_HOST`
 
 3. **Get DIGITALOCEAN_USERNAME**:
+
    - For new droplets, the default username is `root`
    - You can verify this in the droplet's console
 
 4. **Get DIGITALOCEAN_PASSWORD**:
+
    - Use the root password you set during droplet creation
    - Make sure to use a strong password
 
